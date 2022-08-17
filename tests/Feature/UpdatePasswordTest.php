@@ -6,15 +6,16 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 test('password can be updated', function () {
+
     $this->actingAs($user = User::factory()->create());
 
     $response = $this->put('/user/password', [
         'current_password' => 'password',
-        'password' => 'new-password',
-        'password_confirmation' => 'new-password',
+        'password' => $password= fake()->password(),
+        'password_confirmation' => $password,
     ]);
 
-    expect(Hash::check('new-password', $user->fresh()->password))->toBeTrue();
+    expect(Hash::check($password, $user->fresh()->password))->toBeTrue();
 });
 
 test('current password must be correct', function () {
@@ -22,8 +23,22 @@ test('current password must be correct', function () {
 
     $response = $this->put('/user/password', [
         'current_password' => 'wrong-password',
-        'password' => 'new-password',
-        'password_confirmation' => 'new-password',
+        'password' => $password = fake()->password(),
+        'password_confirmation' => $password,
+    ]);
+
+    $response->assertSessionHasErrors();
+
+    expect(Hash::check('password', $user->fresh()->password))->toBeTrue();
+});
+
+test('current password must not be compromised', function () {
+    $this->actingAs($user = User::factory()->create());
+
+    $response = $this->put('/user/password', [
+        'current_password' => 'password',
+        'password' => 'password123',
+        'password_confirmation' => 'password123',
     ]);
 
     $response->assertSessionHasErrors();
