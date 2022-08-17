@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 namespace App\Actions\Fortify;
 
-use Laravel\Fortify\Rules\Password;
+
+use Illuminate\Validation\Rules\Password;
 
 trait PasswordValidationRules
 {
     /**
      * Get the validation rules used to validate passwords.
      *
-     * @return array
+     * @return array<int,string|Password>
      */
-    protected function passwordRules()
+    protected function passwordRules(): array
     {
-        return ['required', 'string', new Password(), 'confirmed'];
+        return [
+            'required',
+            'string',
+            Password::min(4)->uncompromised(),
+            'confirmed',
+        ];
     }
 }

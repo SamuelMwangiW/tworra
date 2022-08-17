@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Actions\Fortify;
 
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -14,11 +16,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     /**
      * Validate and update the given user's profile information.
      *
-     * @param  mixed  $user
-     * @param  array  $input
+     * @param  User  $user
+     * @param  array<string,mixed>  $input
      * @return void
      */
-    public function update($user, array $input)
+    public function update($user, array $input): void
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -26,8 +28,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
-        if (isset($input['photo'])) {
-            $user->updateProfilePhoto($input['photo']);
+        $profilePhoto = data_get($input,'photo');
+
+        if ($profilePhoto instanceof UploadedFile) {
+            $user->updateProfilePhoto($profilePhoto);
         }
 
         if ($input['email'] !== $user->email &&
@@ -44,11 +48,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     /**
      * Update the given verified user's profile information.
      *
-     * @param  mixed  $user
-     * @param  array  $input
+     * @param  User  $user
+     * @param  array<string,mixed>  $input
      * @return void
      */
-    protected function updateVerifiedUser($user, array $input)
+    protected function updateVerifiedUser($user, array $input): void
     {
         $user->forceFill([
             'name' => $input['name'],
