@@ -10,7 +10,7 @@ test('password can be updated', function () {
 
     $response = $this->put('/user/password', [
         'current_password' => 'password',
-        'password' => $password = fake()->password(),
+        'password' => $password = fake()->password(minLength: 8),
         'password_confirmation' => $password,
     ]);
 
@@ -22,7 +22,7 @@ test('current password must be correct', function () {
 
     $response = $this->put('/user/password', [
         'current_password' => 'wrong-password',
-        'password' => $password = fake()->password(),
+        'password' => $password = fake()->password(minLength: 8),
         'password_confirmation' => $password,
     ]);
 
