@@ -4,6 +4,7 @@ import { Inertia } from '@inertiajs/inertia';
 import { Link, useForm } from '@inertiajs/inertia-vue3';
 import JetButton from '@/Components/Button.vue';
 import JetFormSection from '@/Components/FormSection.vue';
+import JetTextarea from '@/Components/Textarea.vue';
 import JetInput from '@/Components/Input.vue';
 import JetInputError from '@/Components/InputError.vue';
 import JetLabel from '@/Components/Label.vue';
@@ -19,6 +20,9 @@ const form = useForm({
     name: props.user.name,
     email: props.user.email,
     username: props.user.username,
+    url: props.user.url,
+    location: props.user.location,
+    description: props.user.description,
     photo: null,
 });
 
@@ -185,6 +189,45 @@ const clearPhotoFileInput = () => {
                         A new verification link has been sent to your email address.
                     </div>
                 </div>
+            </div>
+
+            <!-- URL -->
+            <div class="col-span-6 sm:col-span-4">
+                <JetLabel for="url" value="URL" />
+                <JetInput
+                    id="url"
+                    v-model="form.url"
+                    type="text"
+                    class="mt-1 block w-full"
+                    autocomplete="url"
+                />
+                <JetInputError :message="form.errors.url" class="mt-2" />
+            </div>
+
+            <!-- URL -->
+            <div class="col-span-6 sm:col-span-4">
+                <JetLabel for="location" value="Location" />
+                <JetInput
+                    id="location"
+                    v-model="form.location"
+                    type="text"
+                    class="mt-1 block w-full"
+                    autocomplete="location"
+                />
+                <JetInputError :message="form.errors.location" class="mt-2" />
+            </div>
+
+            <!-- URL -->
+            <div class="col-span-6 sm:col-span-4">
+                <JetLabel for="description" value="Description" />
+                <JetTextarea
+                    id="description"
+                    v-model="form.description"
+                    type="text"
+                    class="mt-1 block w-full"
+                    autocomplete="description"
+                />
+                <JetInputError :message="form.errors.description" class="mt-2" />
             </div>
         </template>
 
