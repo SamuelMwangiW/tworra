@@ -25,7 +25,7 @@
       "resources/js/Pages/Timeline.vue"
     ],
     "css": [
-      "assets/app.8cb89e77.css"
+      "assets/app.dc5b660b.css"
     ]
   },
   "resources/js/Pages/API/Index.vue": {
@@ -409,7 +409,7 @@
     ]
   },
   "resources/js/app.css": {
-    "file": "assets/app.8cb89e77.css",
+    "file": "assets/app.dc5b660b.css",
     "src": "resources/js/app.css"
   }
 }
