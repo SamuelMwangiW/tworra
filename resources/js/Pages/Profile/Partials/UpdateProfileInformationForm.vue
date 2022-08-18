@@ -18,6 +18,7 @@ const form = useForm({
     _method: 'PUT',
     name: props.user.name,
     email: props.user.email,
+    username: props.user.username,
     photo: null,
 });
 
@@ -141,6 +142,19 @@ const clearPhotoFileInput = () => {
                 <JetInputError :message="form.errors.name" class="mt-2" />
             </div>
 
+            <!-- Username -->
+            <div class="col-span-6 sm:col-span-4">
+                <JetLabel for="username" value="Username" />
+                <JetInput
+                    id="username"
+                    v-model="form.username"
+                    type="text"
+                    class="mt-1 block w-full"
+                    autocomplete="username"
+                />
+                <JetInputError :message="form.errors.username" class="mt-2" />
+            </div>
+
             <!-- Email -->
             <div class="col-span-6 sm:col-span-4">
                 <JetLabel for="email" value="Email" />
@@ -154,7 +168,7 @@ const clearPhotoFileInput = () => {
 
                 <div v-if="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
                     <p class="text-sm mt-2">
-                        Your email address is unverified.
+                        <span>Your email address is unverified.</span>
 
                         <Link
                             :href="route('verification.send')"

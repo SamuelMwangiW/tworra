@@ -12,8 +12,11 @@ module.exports = {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            screens: {
+                mobile: '440px',
+                tablet: '640px',
+                laptop: '1060px',
+                desktop: '1320px',
             },
         },
     },

@@ -36,7 +36,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                ->as('guest.')
+                ->group(base_path('routes/guest.php'));
+
+            Route::middleware([
+                'web',
+                'auth:sanctum',
+                config('jetstream.auth_session'),
+                'verified',
+            ])->group(base_path('routes/web.php'));
         });
     }
 
@@ -48,7 +56,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
-            /** @phpstan-ignore-next-line  */
+            /** @phpstan-ignore-next-line */
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }
