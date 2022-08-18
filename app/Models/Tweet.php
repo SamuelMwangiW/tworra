@@ -36,5 +36,4 @@ class Tweet extends Model
             foreignKey: 'user_id',
         );
     }
-
 }
