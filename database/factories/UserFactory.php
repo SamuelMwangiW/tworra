@@ -61,7 +61,7 @@ class UserFactory extends Factory
      */
     public function withPersonalTeam()
     {
-        if (!Features::hasTeamFeatures()) {
+        if (! Features::hasTeamFeatures()) {
             return $this->state([]);
         }
 

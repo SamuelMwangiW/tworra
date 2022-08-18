@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -32,23 +34,23 @@ class ShareInertiaData
                 },
                 'auth' => [
                     'user' => function () use ($request) {
-                        if (!$user = $request->user()) {
+                        if (! $user = $request->user()) {
                             return null;
                         }
 
                         return array_merge($user->toArray(), [
-                            'two_factor_enabled' => !is_null($user->two_factor_secret),
+                            'two_factor_enabled' => ! is_null($user->two_factor_secret),
                         ]);
                     },
                 ],
                 'errorBags' => function () {
-                    if (!$error = Session::get('errors')) {
+                    if (! $error = Session::get('errors')) {
                         return [];
                     }
 
                     /** @var \Illuminate\Support\ViewErrorBag $error */
                     return collect($error->getBags())->mapWithKeys(
-                        fn($bag, $key) => [$key => $bag->messages()]
+                        fn ($bag, $key) => [$key => $bag->messages()]
                     )->all();
                 },
             ])

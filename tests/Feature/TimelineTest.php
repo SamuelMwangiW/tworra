@@ -16,6 +16,6 @@ test('users can view the timeline', function () {
         ->get('/')
         ->assertOk()
         ->assertInertia(
-            fn(AssertableInertia $page) => $page->component('Timeline')
+            fn (AssertableInertia $page) => $page->component('Timeline')
         );
 });
