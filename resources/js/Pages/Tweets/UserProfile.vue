@@ -2,24 +2,24 @@
 import { Head } from '@inertiajs/inertia-vue3';
 import { SearchIcon } from '@heroicons/vue/outline'
 import TwitterLayout from '@/Layouts/Twitter/Index.vue'
-import Publisher from '@/Components/Publisher/Index.vue'
 import Feed from '@/Components/Feed/Index.vue'
 import Trends from '@/Components/Trends/Index.vue'
-import tweets from "@/Data/posts.js"
 
-defineProps({});
+defineProps({
+    user: Object,
+    tweets: Array,
+})
 </script>
 
 <template>
-    <Head title="Welcome" ></Head>
+    <Head :title="`${user.data.name} @(${user.data.username})`" ></Head>
 
     <TwitterLayout>
         <div class="max-w-[37.5rem] border-x-[0.5px] dark:border-neutral-600">
             <section class="sticky top-0 px-4 py-2 bg-white dark:bg-neutral-900">
                 <h1 class="text-lg font-bold">Home</h1>
             </section>
-            <Publisher />
-            <Feed :tweets="tweets"/>
+            <Feed :tweets="tweets.data"/>
         </div>
         <div class="laptop:block hidden px-8 space-y-1">
             <section class="sticky top-0 py-3 bg-white dark:bg-neutral-900 z-20">

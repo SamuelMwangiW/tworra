@@ -1,6 +1,9 @@
 <script setup>
-import tweets from "@/Data/posts.js"
 import Tweet from "./Tweet/Index.vue"
+
+defineProps({
+    tweets: Array
+})
 </script>
 
 <template>
