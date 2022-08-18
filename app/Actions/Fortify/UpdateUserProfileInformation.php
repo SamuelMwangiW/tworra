@@ -46,9 +46,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'username' => $input['username'],
-                'url' => data_get($input,'url'),
-                'location' => data_get($input,'location'),
-                'description' => data_get($input,'description'),
+                'url' => data_get($input, 'url'),
+                'location' => data_get($input, 'location'),
+                'description' => data_get($input, 'description'),
             ])->save();
         }
     }
@@ -66,9 +66,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => $input['name'],
             'email' => $input['email'],
             'email_verified_at' => null,
-            'url' => data_get($input,'url'),
-            'location' => data_get($input,'location'),
-            'description' => data_get($input,'description'),
+            'url' => data_get($input, 'url'),
+            'location' => data_get($input, 'location'),
+            'description' => data_get($input, 'description'),
         ])->save();
 
         $user->sendEmailVerificationNotification();

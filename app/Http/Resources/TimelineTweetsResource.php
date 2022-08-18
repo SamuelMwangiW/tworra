@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
@@ -20,7 +22,7 @@ class TimelineTweetsResource extends JsonResource
             'message' => $this->message,
             'time' => $this->created_at->diffForHumans(),
             'liked' => Arr::random([true,false]),
-            'likes' => $this->whenCounted(relationship: 'likes',default: 0),
+            'likes' => $this->whenCounted(relationship: 'likes', default: 0),
             'replies' => 2,
             'retweets' => 2,
 

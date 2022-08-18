@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Tweet;
 use App\Models\User;
 use Inertia\Testing\AssertableInertia;
@@ -38,10 +40,10 @@ it('passes user tweets to their profile', function () {
         ->actingAs($user)
         ->get("/{$user->username}")
         ->assertInertia(
-            fn(AssertableInertia $page) => $page
+            fn (AssertableInertia $page) => $page
                 ->has(
                     'user.data',
-                    fn(AssertableInertia $userProp) => $userProp->hasAll([
+                    fn (AssertableInertia $userProp) => $userProp->hasAll([
                         'id',
                         'name',
                         'username',
@@ -54,18 +56,18 @@ it('passes user tweets to their profile', function () {
                     ])
                 )->has(
                     'tweets',
-                    fn(AssertableInertia $tweetsObj) => $tweetsObj
+                    fn (AssertableInertia $tweetsObj) => $tweetsObj
                         ->hasAll(['data', 'links', 'meta'])
                         ->count('data', 10)
                         ->has(
                             'data',
-                            fn(AssertableInertia $tweets) => $tweets
+                            fn (AssertableInertia $tweets) => $tweets
                                 ->each(
-                                    fn(AssertableInertia $tweet) => $tweet
+                                    fn (AssertableInertia $tweet) => $tweet
                                         ->hasAll(['id', 'message', 'time', 'liked', 'likes', 'replies', 'retweets'])
                                         ->has(
                                             'user',
-                                            fn(AssertableInertia $user) => $user->hasAll(
+                                            fn (AssertableInertia $user) => $user->hasAll(
                                                 ['name', 'username', 'profilePhotoUrl']
                                             )
                                         )
