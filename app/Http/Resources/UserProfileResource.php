@@ -6,16 +6,19 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 /** @mixin \App\Models\User */
 class UserProfileResource extends JsonResource
 {
     /**
      * @param Request $request
-     * @return array
+     * @return array<string,mixed>
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
+        $createdAt = $this->created_at?->diffForHumans() ?? '';
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -24,7 +27,7 @@ class UserProfileResource extends JsonResource
             'location' => $this->location,
             'url' => $this->url,
             'description' => $this->description,
-            'created' => str($this->created_at->diffForHumans())->trim(' ago'),
+            'created' => Str::of($createdAt)->trim(' ago')->value(),
             'tweets_count' => $this->whenCounted('tweets'),
         ];
     }

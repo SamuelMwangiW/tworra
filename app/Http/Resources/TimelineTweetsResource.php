@@ -13,15 +13,15 @@ class TimelineTweetsResource extends JsonResource
 {
     /**
      * @param Request $request
-     * @return array
+     * @return array<string,mixed>
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
             'id' => $this->id,
             'message' => $this->message,
-            'time' => $this->created_at->diffForHumans(),
-            'liked' => Arr::random([true,false]),
+            'time' => $this->created_at?->diffForHumans(),
+            'liked' => $this?->liked ?? false,
             'likes' => $this->whenCounted(relationship: 'likes', default: 0),
             'replies' => 2,
             'retweets' => 2,
