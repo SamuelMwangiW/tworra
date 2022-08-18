@@ -1,9 +1,27 @@
 <script setup>
-import { ViewBoardsIcon } from '@heroicons/vue/solid'
+import {ViewBoardsIcon} from '@heroicons/vue/solid'
 import Avatar from '@/Components/Avatar.vue'
 import TextBox from './TextBox.vue'
 import Actions from './Actions.vue'
+import {useForm} from '@inertiajs/inertia-vue3'
+import {computed} from 'vue'
+import {floor, min} from 'lodash'
+import Spinner from '@/Components/Publisher/Spinner.vue'
 
+const form = useForm({
+    'message': ''
+})
+const messageIsInvalid = computed(() => {
+    return form.message.length === 0 || form.message.length > 320
+})
+const messageProgress = computed(() => {
+    const length = floor((form.message.length / 32) * 10)
+
+    return min([100,length])
+})
+const postTweet = ()=> form.post('tweets',{
+    onSuccess:()=>form.reset()
+});
 </script>
 
 <template>
@@ -12,14 +30,21 @@ import Actions from './Actions.vue'
             src="https://images.unsplash.com/photo-1614639437280-558b05b13939?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM0fHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
             alt="Profile"
         />
-        <div class="space-y-2 w-full">
-            <TextBox />
+        <form :action="route('tweets.create')" method="post" @submit.prevent="postTweet" class="space-y-2 w-full">
+            <TextBox v-model="form.message"/>
             <div class="flex items-center justify-between gap-4">
-                <div class="hover:bg-sky-100 p-2 rounded-full transition-colors duration-500 ease-out cursor-pointer mobile:hidden">
-                    <ViewBoardsIcon class="w-5 h-5 text-sky-500" />
+                <div
+                    class="hover:bg-sky-100 p-2 rounded-full transition-colors duration-500 ease-out cursor-pointer mobile:hidden">
+                    <ViewBoardsIcon class="w-5 h-5 text-sky-500"/>
                 </div>
-                <Actions />
+                <Actions/>
+                <spinner :percent="messageProgress" class="w-8 h-8" v-if="form.message"/>
+                <button
+                    :disabled="messageIsInvalid"
+                    class="bg-sky-500 hover:bg-sky-400 hover-transition px-5 py-2 text-white font-bold rounded-full w-full mobile:w-auto disabled:opacity-25">
+                    Tweet
+                </button>
             </div>
-        </div>
+        </form>
     </section>
 </template>
