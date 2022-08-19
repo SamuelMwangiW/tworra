@@ -53,6 +53,9 @@ it('passes user tweets to their profile', function () {
                         'description',
                         'joined',
                         'tweets_count',
+                        'followers_count',
+                        'following_count',
+                        'following',
                     ])
                 )->has(
                     'tweets',
