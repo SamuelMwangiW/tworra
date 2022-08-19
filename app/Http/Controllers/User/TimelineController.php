@@ -24,15 +24,15 @@ class TimelineController extends Controller
         $tweets = Tweet::query()
             ->latest()
             ->where(
-                function(Builder $query) use($user) {
+                function (Builder $query) use ($user) {
                     $query
                         ->where('user_id', $user->id)
                         ->orWhereIn('user_id', $user->following()->pluck('users.id'));
-                    }
+                }
             )->with(['user'])
             ->withCount([
                 'likes',
-                'likes as liked' => fn(Builder $q) => $q->where('user_id', auth()->id()),
+                'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id()),
             ])
             ->withCasts(['liked' => 'boolean'])
             ->simplePaginate();
