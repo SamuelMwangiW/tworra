@@ -88,10 +88,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function following(): BelongsToMany
     {
         return $this->belongsToMany(
-                related: User::class,
-                table: 'following',
-                foreignPivotKey: 'follower_id',
-                relatedPivotKey: 'followed_id'
-            )->withTimestamps();
+            related: User::class,
+            table: 'following',
+            foreignPivotKey: 'follower_id',
+            relatedPivotKey: 'followed_id'
+        )->withTimestamps();
     }
 }

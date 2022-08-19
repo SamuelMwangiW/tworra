@@ -35,11 +35,11 @@ class DatabaseSeeder extends Seeder
 
         $users
             ->each(
-                fn(User $user) => $user->followers()->attach(
+                fn (User $user) => $user->followers()->attach(
                     $users->where('id', '!=', $user->id)->random(10)->pluck('id')
                 )
             )->each(
-                fn(User $user) => $user->following()->attach(
+                fn (User $user) => $user->following()->attach(
                     $users->where('id', '!=', $user->id)->random(10)->pluck('id')
                 )
             );

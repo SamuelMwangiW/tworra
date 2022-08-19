@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Follow;
 
 use App\Http\Resources\TimelineTweetUserResource;
@@ -16,7 +18,7 @@ class ShowFollowers
     {
         $followers = $user->followers()
             ->withCount([
-                'followers as followings' => fn(Builder $query) => $query->where('follower_id', auth()->id()),
+                'followers as followings' => fn (Builder $query) => $query->where('follower_id', auth()->id()),
             ])
             ->withCasts(['followings' => 'boolean'])
             ->simplePaginate();
