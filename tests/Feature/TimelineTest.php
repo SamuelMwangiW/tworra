@@ -17,7 +17,7 @@ test('users can view the timeline', function () {
         ->get('/')
         ->assertOk()
         ->assertInertia(
-            fn(AssertableInertia $page) => $page->component('Timeline')
+            fn (AssertableInertia $page) => $page->component('Timeline')
         );
 });
 
@@ -30,14 +30,17 @@ test('timeline contains users tweets', function () {
         ->get('/')
         ->assertOk()
         ->assertInertia(
-            fn(AssertableInertia $page) => $page
+            fn (AssertableInertia $page) => $page
                 ->has(
-                    'tweets.data'
-                    , fn(AssertableInertia $data) => $data
+                    'tweets.data',
+                    fn (AssertableInertia $data) => $data
                     ->count(5)
-                    ->each(fn(AssertableInertia $tweet) => $tweet
+                    ->each(
+                        fn (AssertableInertia $tweet) => $tweet
                         ->hasAll(['id', 'message', 'time', 'likes', 'replies', 'liked', 'retweets'])
-                        ->has('user', fn(AssertableInertia $owner) => $owner
+                        ->has(
+                            'user',
+                            fn (AssertableInertia $owner) => $owner
                             ->where('name', $user->name)
                             ->where('username', $user->username)
                             ->where('profilePhotoUrl', $user->profile_photo_url)
@@ -66,13 +69,13 @@ test('timeline contains following tweets', function () {
         ->get('/')
         ->assertOk()
         ->assertInertia(
-            fn(AssertableInertia $page) => $page
+            fn (AssertableInertia $page) => $page
                 ->has(
-                    'tweets.data'
-                    , fn(AssertableInertia $data) => $data
+                    'tweets.data',
+                    fn (AssertableInertia $data) => $data
                     ->count(9)
                     ->each(
-                        fn(AssertableInertia $tweet) => $tweet->hasAll([
+                        fn (AssertableInertia $tweet) => $tweet->hasAll([
                             'id',
                             'message',
                             'time',
@@ -105,8 +108,9 @@ test('timeline does not contain tweets from users not followed', function () {
     $this->actingAs($user)
         ->get('/')
         ->assertInertia(
-            fn(AssertableInertia $page) => $page->has(
-                    'tweets.data', fn(AssertableInertia $data) => $data->count(4)->etc()
-                )
+            fn (AssertableInertia $page) => $page->has(
+                'tweets.data',
+                fn (AssertableInertia $data) => $data->count(4)->etc()
+            )
         );
 });
