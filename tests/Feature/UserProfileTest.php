@@ -51,7 +51,7 @@ it('passes user tweets to their profile', function () {
                         'location',
                         'url',
                         'description',
-                        'created',
+                        'joined',
                         'tweets_count',
                     ])
                 )->has(
