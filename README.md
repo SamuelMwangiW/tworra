@@ -45,6 +45,11 @@ vendor/bin/phpstan
 vendor/bin/pint --test
 ```
 
+## Credits
+ - [Constantin Druc's TY series](https://www.youtube.com/watch?v=wpRWrrH9AcI&list=PLUMh5Fzy8HsluM8gWklbZMEmjpwt8HQdU)
+ - [Laravel team](https://laravel.com/)
+ - [Inertia](https://inertiajs.com/)
+
 ## Security Vulnerabilities
 
 If you discover a security vulnerability specific to Laravel, please refer to the [Laravel Security Policy](https://github.com/laravel/framework/security/policy).
