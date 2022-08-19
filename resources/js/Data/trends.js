@@ -2,13 +2,13 @@ const trends= [
     {
         id: '1',
         title: 'CAT 7',
-        category: 'Trending in Philippines',
+        category: 'Trending in Wakanda',
         tweetCount: '2,236k',
     },
     {
         id: '2',
         title: 'CAT 2',
-        category: 'Trending in Philippines',
+        category: 'Trending in Wakanda',
         tweetCount: '10.9K',
     },
     {
@@ -20,25 +20,25 @@ const trends= [
     {
         id: '4',
         title: 'Hotdog',
-        category: 'Trending in Philippines',
+        category: 'Trending in Wakanda',
         tweetCount: '10.7K',
     },
     {
         id: '5',
         title: 'Extraordinary You',
-        category: 'Trending in Philippines',
+        category: 'Trending in Wakanda',
         tweetCount: '5,377k',
     },
     {
         id: '6',
         title: 'President-elect',
-        category: 'Trending in Philippines',
+        category: 'Trending in Wakanda',
         tweetCount: '167K',
     },
     {
         id: '7',
         title: 'Mandaluyong City',
-        category: 'rending in Philippines',
+        category: 'Trending in Wakanda',
         tweetCount: '581K',
     },
     {
@@ -50,7 +50,7 @@ const trends= [
     {
         id: '9',
         title: 'raine',
-        category: 'Trending in Philippines',
+        category: 'Trending in Wakanda',
         tweetCount: '6,197k',
     },
     {
