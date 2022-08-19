@@ -14,3 +14,15 @@ it('follows a user', function () {
 
     expect($followee)->followers->toHaveCount(1);
 });
+
+it('unfollows a user', function () {
+    $follower = User::factory()->create();
+    $followee = User::factory()->create();
+    $followee->followers()->attach($follower->id);
+
+    $this->actingAs($follower)
+        ->delete("/{$followee->username}/follow")
+        ->assertSessionHasNoErrors();
+
+    expect($followee)->followers->toHaveCount(0);
+});
