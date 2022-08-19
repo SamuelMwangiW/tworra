@@ -24,7 +24,12 @@ import {
                 <ApplicationLogo class="h-7"/>
             </div>
             <div class="space-y-3">
-                <NavbarItem :icon="HomeIcon" name="Home" :active="true"/>
+                <NavbarItem
+                    :icon="HomeIcon"
+                    name="Home"
+                    :active="true"
+                    :href="route('timeline')"
+                />
                 <NavbarItem :icon="HashtagIcon" name="Explore" :active="false"/>
                 <NavbarItem :icon="BellIcon" name="Notifications" :active="false"/>
                 <NavbarItem :icon="MailIcon" name="Messages" :active="false"/>

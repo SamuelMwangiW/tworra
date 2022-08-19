@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -72,5 +73,25 @@ class User extends Authenticatable implements MustVerifyEmail
             related: Tweet::class,
             foreignKey: 'user_id'
         );
+    }
+
+    public function followers(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            related: User::class,
+            table: 'following',
+            foreignPivotKey: 'followed_id',
+            relatedPivotKey: 'follower_id'
+        )->withTimestamps();
+    }
+
+    public function following(): BelongsToMany
+    {
+        return $this->belongsToMany(
+                related: User::class,
+                table: 'following',
+                foreignPivotKey: 'follower_id',
+                relatedPivotKey: 'followed_id'
+            )->withTimestamps();
     }
 }

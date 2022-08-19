@@ -27,7 +27,7 @@ const postTweet = ()=> form.post('tweets',{
 <template>
     <section class="px-4 pt-4 pb-2 grid grid-cols-[auto,1fr] gap-4 ">
         <Avatar
-            src="https://images.unsplash.com/photo-1614639437280-558b05b13939?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM0fHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            :src="$page.props.auth.user.profile_photo_url"
             alt="Profile"
         />
         <form :action="route('tweets.create')" method="post" @submit.prevent="postTweet" class="space-y-2 w-full">

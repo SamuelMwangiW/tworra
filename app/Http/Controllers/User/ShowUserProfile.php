@@ -32,7 +32,7 @@ class ShowUserProfile extends Controller
         }
 
         return Inertia::render(
-            component: 'Tweets/UserProfile',
+            component: 'User/UserProfile',
             props: [
                 'user' => UserProfileResource::make($user->loadCount(['tweets'])),
                 'tweets' => TimelineTweetsResource::collection($tweets)

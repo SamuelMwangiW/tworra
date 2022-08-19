@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()
+        $adminUser = User::factory()
             ->has(Tweet::factory()->count(5))
             ->create([
                 'name' => 'Samuel Mwangi',
@@ -28,9 +28,28 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('super-secret-thingy'),
             ]);
 
-        User::factory()
+        $users = User::factory()
             ->has(Tweet::factory()->count(50))
             ->count(30)
             ->create();
+
+        $users
+            ->each(
+                fn(User $user) => $user->followers()->attach(
+                    $users->where('id', '!=', $user->id)->random(10)->pluck('id')
+                )
+            )->each(
+                fn(User $user) => $user->following()->attach(
+                    $users->where('id', '!=', $user->id)->random(10)->pluck('id')
+                )
+            );
+        $adminUser
+            ->followers()->attach(
+                $users->where('id', '!=', $adminUser->id)->random(20)->pluck('id')
+            );
+
+        $adminUser->following()->attach(
+            $users->where('id', '!=', $adminUser->id)->random(10)->pluck('id')
+        );
     }
 }

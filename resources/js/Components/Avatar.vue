@@ -16,6 +16,6 @@ defineProps({
 
 <template>
     <div class="overflow-hidden rounded-full" :class="`${widthClass} ${heightClass}`">
-        <img :src="src" :alt="alt" class="w-full" />
+        <img :src="src" :alt="alt" class="w-full hover:opacity-60" />
     </div>
 </template>

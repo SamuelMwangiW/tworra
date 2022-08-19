@@ -17,8 +17,6 @@ class UserProfileResource extends JsonResource
      */
     public function toArray($request): array
     {
-        $createdAt = $this->created_at?->diffForHumans() ?? '';
-
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -27,7 +25,7 @@ class UserProfileResource extends JsonResource
             'location' => $this->location,
             'url' => $this->url,
             'description' => $this->description,
-            'created' => Str::of($createdAt)->trim(' ago')->value(),
+            'joined' => $this->created_at?->format('M Y') ?? '',
             'tweets_count' => $this->whenCounted('tweets'),
         ];
     }

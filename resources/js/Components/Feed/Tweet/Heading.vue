@@ -1,4 +1,5 @@
 <script setup>
+import {Link} from '@inertiajs/inertia-vue3'
 import {DotsHorizontalIcon} from '@heroicons/vue/outline'
 
 defineProps({
@@ -10,8 +11,12 @@ defineProps({
 
 <template>
     <div class="flex gap-1 items-center">
-        <h1 class="font-bold">{{ name }}</h1>
-        <h2 class="text-neutral-500 hidden mobile:block">@{{ username }}</h2>
+        <Link :href="route('show-user-profile',{user:username})" class="font-bold hover:underline">
+            {{ name }}
+        </Link>
+        <Link :href="route('show-user-profile',{user:username})" class="text-neutral-500 hidden mobile:block">
+            @{{ username }}
+        </Link>
         <span class="text-neutral-500">•</span>
         <h2 class="text-neutral-500">{{ time }}</h2>
         <div

@@ -1,12 +1,14 @@
 <script setup>
-
+import {Link} from '@inertiajs/inertia-vue3'
 import Rune from '@/Components/Rune.vue'
 import Icon from '@/Components/Icons.vue'
 
 defineProps({
+    tweetId: Number,
     replies: Number,
     retweets: Number,
-    likes: Number
+    likes: Number,
+    liked: Boolean,
 })
 </script>
 
@@ -16,20 +18,24 @@ defineProps({
             <Rune colour="group-hover:bg-sky-100 dark:group-hover:bg-inherit">
                 <Icon name="ReplyIcon" class="group-hover:text-sky-500" />
             </Rune>
-            <p class="text-xs group-hover:text-sky-500">{{ replies }}</p>
+            <p v-if="replies" class="text-xs group-hover:text-sky-500">{{ replies }}</p>
         </div>
         <div class="flex items-center group tablet:px-4">
             <Rune colour="group-hover:bg-green-100 dark:group-hover:bg-inherit">
                 <Icon name="RetweetIcon" class="group-hover:text-green-500" />
             </Rune>
-            <p class="text-xs group-hover:text-green-500">{{ retweets }}</p>
+            <p v-if="retweets" class="text-xs group-hover:text-green-500">{{ retweets }}</p>
         </div>
-        <div class="flex items-center group tablet:px-4">
+        <Link
+            :href="route('tweet.like',tweetId)"
+            method="post"
+            as="button"
+            class="flex items-center group tablet:px-4">
             <Rune colour="group-hover:bg-rose-100 dark:group-hover:bg-inherit">
-                <Icon name="LikeIcon" class="group-hover:text-rose-500" />
+                <Icon name="LikeIcon" class="group-hover:text-rose-500" :class="liked ? 'text-rose-500':''" />
             </Rune>
-            <p class="text-xs group-hover:text-rose-500">{{ likes }}</p>
-        </div>
+            <p v-if="likes" class="text-xs group-hover:text-rose-500" :class="liked ? 'text-rose-500':''">{{ likes }}</p>
+        </Link>
         <div class="flex items-center group tablet:pl-4">
             <Rune colour="group-hover:bg-sky-100 dark:group-hover:bg-inherit">
                 <Icon name="ShareIcon" class="group-hover:text-sky-500" />
