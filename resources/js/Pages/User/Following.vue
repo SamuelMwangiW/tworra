@@ -1,5 +1,5 @@
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head,Link } from '@inertiajs/inertia-vue3';
 import { SearchIcon } from '@heroicons/vue/outline'
 import TwitterLayout from '@/Layouts/Twitter/Index.vue'
 import Trends from '@/Components/Trends/Index.vue'
@@ -18,11 +18,13 @@ defineProps({
     <TwitterLayout>
         <div class="max-w-[37.5rem] md:min-w-[37.5rem] border-x-[0.5px] dark:border-neutral-600">
             <section class="sticky flex items-center gap-8 top-0 px-4 py-2 bg-white dark:bg-neutral-900">
-                <ArrowLeftIcon class="w-4 h-4" />
-                <h1 class="text-lg font-bold flex flex-col">
+                <Link :href="route('show-user-profile',user.data.username)">
+                    <ArrowLeftIcon class="w-4 h-4" />
+                </Link>
+                <Link :href="route('show-user-profile',user.data.username)" class="text-lg font-bold flex flex-col">
                     <span>{{ user.data.name }}</span>
                     <span class="text-xs text-gray-500 font-normal">@{{ user.data.username }}</span>
-                </h1>
+                </Link>
             </section>
             <FollowerFollowing
                 class="md:w-[37.5rem]"

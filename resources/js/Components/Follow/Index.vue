@@ -13,15 +13,22 @@ defineProps({
 <template>
     <following-header :page="page" :username="user.data.username"/>
     <div class="">
-        <div class="flex py-2 items-center hover:bg-neutral-200 dark:hover:bg-neutral-800" v-for="tweep in users.data" :key="tweep.id">
+        <div class="flex py-2 items-center hover:bg-neutral-200 dark:hover:bg-neutral-800" v-for="tweep in users.data"
+             :key="tweep.id">
             <div class="shrink-0 p-4">
-                <Avatar :src="tweep.profilePhotoUrl" />
+                <Link :href="route('show-user-profile',user.data.username)">
+                    <Avatar :src="tweep.profilePhotoUrl"/>
+                </Link>
             </div>
             <div class="flex-grow flex flex-col">
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col">
-                        <div class="text-base font-semibold">{{ tweep.name }}</div>
-                        <div class="text-sm leading-none text-neutral-500">@{{ tweep.username }}</div>
+                        <Link :href="route('show-user-profile',user.data.username)">
+                            <div class="text-base hover:underline font-semibold">{{ tweep.name }}</div>
+                        </Link>
+                        <Link :href="route('show-user-profile',user.data.username)">
+                            <div class="text-sm leading-none text-neutral-500">@{{ tweep.username }}</div>
+                        </Link>
                     </div>
                     <div class="pr-3">
                         <Link
@@ -40,8 +47,10 @@ defineProps({
                         </Link>
                     </div>
                 </div>
-                <div class="pt-2">
-                    {{ tweep.description }}
+                <div class="pt-2 flex-1">
+                    <Link :href="route('show-user-profile',user.data.username)">
+                        {{ tweep.description }}
+                    </Link>
                 </div>
             </div>
         </div>
