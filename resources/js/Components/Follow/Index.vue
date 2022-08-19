@@ -16,17 +16,17 @@ defineProps({
         <div class="flex py-2 items-center hover:bg-neutral-200 dark:hover:bg-neutral-800" v-for="tweep in users.data"
              :key="tweep.id">
             <div class="shrink-0 p-4">
-                <Link :href="route('show-user-profile',user.data.username)">
+                <Link :href="route('show-user-profile',tweep.username)">
                     <Avatar :src="tweep.profilePhotoUrl"/>
                 </Link>
             </div>
             <div class="flex-grow flex flex-col">
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col">
-                        <Link :href="route('show-user-profile',user.data.username)">
+                        <Link :href="route('show-user-profile',tweep.username)">
                             <div class="text-base hover:underline font-semibold">{{ tweep.name }}</div>
                         </Link>
-                        <Link :href="route('show-user-profile',user.data.username)">
+                        <Link :href="route('show-user-profile',tweep.username)">
                             <div class="text-sm leading-none text-neutral-500">@{{ tweep.username }}</div>
                         </Link>
                     </div>
