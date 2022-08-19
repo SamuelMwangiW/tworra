@@ -9,7 +9,6 @@ import {
     BellIcon,
     MailIcon,
     BookmarkIcon,
-    ViewListIcon,
     LogoutIcon,
     UserIcon,
     DotsCircleHorizontalIcon,
