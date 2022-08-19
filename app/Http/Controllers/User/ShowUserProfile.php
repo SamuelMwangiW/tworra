@@ -22,7 +22,7 @@ class ShowUserProfile extends Controller
             ->latest()
             ->with(['user'])
             ->withCount([
-                'likes as liked' => fn(Builder $q) => $q->where('user_id', auth()->id()),
+                'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id()),
             ])
             ->withCount(['likes'])
             ->simplePaginate();
@@ -33,7 +33,7 @@ class ShowUserProfile extends Controller
 
         $user
             ->loadCount([
-                'followers as is_following' => fn(Builder $query) => $query->where('follower_id', auth()->id()),
+                'followers as is_following' => fn (Builder $query) => $query->where('follower_id', auth()->id()),
             ])->loadCount(['tweets', 'followers', 'following'])
             ->withCasts(['is_following'=>'boolean']);
 
