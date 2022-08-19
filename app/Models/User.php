@@ -75,6 +75,9 @@ class User extends Authenticatable implements MustVerifyEmail
         );
     }
 
+    /**
+     * @return BelongsToMany<User>
+     */
     public function followers(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -85,6 +88,9 @@ class User extends Authenticatable implements MustVerifyEmail
         )->withTimestamps();
     }
 
+    /**
+     * @return BelongsToMany<User>
+     */
     public function following(): BelongsToMany
     {
         return $this->belongsToMany(

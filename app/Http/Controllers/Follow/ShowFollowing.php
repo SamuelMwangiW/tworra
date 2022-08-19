@@ -9,10 +9,11 @@ use App\Http\Resources\UserFollowSummaryResource;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class ShowFollowing
 {
-    public function __invoke(User $user)
+    public function __invoke(User $user): Response
     {
         $following = $user->following()
             ->withCount([
