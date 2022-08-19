@@ -22,9 +22,10 @@ class ShowUserProfile extends Controller
             ->latest()
             ->with(['user'])
             ->withCount([
+                'likes',
                 'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id()),
             ])
-            ->withCount(['likes'])
+            ->withCasts(['liked'=>'boolean'])
             ->simplePaginate();
 
         if ($request->wantsJson()) {

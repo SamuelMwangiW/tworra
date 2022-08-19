@@ -7,6 +7,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TimelineTweetsResource;
 use App\Models\Tweet;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -17,14 +18,25 @@ class TimelineController extends Controller
 {
     public function __invoke(Request $request): ResourceCollection|Response
     {
+        /** @var User $user */
+        $user = $request->user();
+
         $tweets = Tweet::query()
             ->latest()
-            ->with(['user'])
+            ->where(
+                function(Builder $query) use($user) {
+                    $query
+                        ->where('user_id', $user->id)
+                        ->orWhereIn('user_id', $user->following()->pluck('users.id'));
+                    }
+            )->with(['user'])
             ->withCount([
-                'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id())
+                'likes',
+                'likes as liked' => fn(Builder $q) => $q->where('user_id', auth()->id()),
             ])
-            ->withCount('likes')
+            ->withCasts(['liked' => 'boolean'])
             ->simplePaginate();
+
         if ($request->wantsJson()) {
             return TimelineTweetsResource::collection($tweets);
         }
