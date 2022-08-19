@@ -26,6 +26,9 @@ class UserProfileResource extends JsonResource
             'description' => $this->description,
             'joined' => $this->created_at?->format('M Y') ?? '',
             'tweets_count' => $this->whenCounted('tweets'),
+            'followers_count' => $this->whenCounted(relationship: 'followers'),
+            'following_count' => $this->whenCounted(relationship: 'following'),
+            'following' => $this?->is_following ?? false,
         ];
     }
 }

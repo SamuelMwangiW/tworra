@@ -23,10 +23,20 @@ const props = defineProps({
                 </div>
 
                 <div class="" v-if="user.data.id !== $page.props.auth.user.id">
-                    <button
-                        class="text-blue-500 rounded-full border border-blue-500 h-10 px-4 py-2 font-bold hover:bg-gray-100"
-                    >following
-                    </button>
+                    <Link
+                        :href="route('follow.destroy',user.data.username)"
+                        method="DELETE"
+                        v-if="user.data.following"
+                        class="px-4 py-2 rounded-full border border-gray-500 hover:bg-rose-500 dark:hover:bg-neutral-600">
+                        Unfollow
+                    </Link>
+                    <Link
+                        :href="route('follow.create',user.data.username)"
+                        method="POST"
+                        v-if="!user.data.following"
+                        class="px-4 py-2 rounded-full border border-gray-500 hover:bg-rose-500 dark:hover:bg-neutral-600">
+                        Follow
+                    </Link>
                 </div>
 
                 <div class="" v-else>
@@ -59,12 +69,12 @@ const props = defineProps({
             <div class="flex mb-3 text-xs tracking-tight">
                 <div class="mr-4">
                     <Link :href="route('following',{user:user.data.username})" class="hover:underline font-bold">
-                        6,345 <span class="text-gray-500">Following</span>
+                        {{ user.data.following_count }} <span class="text-gray-500">Following</span>
                     </Link>
                 </div>
                 <div>
                     <Link :href="route('followers',{user:user.data.username})" class="hover:underline font-bold">
-                        12,834 <span class="text-gray-500">Followers</span>
+                        {{ user.data.followers_count }} <span class="text-gray-500">Followers</span>
                     </Link>
                 </div>
             </div>

@@ -22,20 +22,26 @@ class ShowUserProfile extends Controller
             ->latest()
             ->with(['user'])
             ->withCount([
-                'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id())
+                'likes as liked' => fn(Builder $q) => $q->where('user_id', auth()->id()),
             ])
-            ->withCount('likes')
+            ->withCount(['likes'])
             ->simplePaginate();
 
         if ($request->wantsJson()) {
             return TimelineTweetsResource::collection($tweets);
         }
 
+        $user
+            ->loadCount([
+                'followers as is_following' => fn(Builder $query) => $query->where('follower_id', auth()->id()),
+            ])->loadCount(['tweets', 'followers', 'following'])
+            ->withCasts(['is_following'=>'boolean']);
+
         return Inertia::render(
             component: 'User/UserProfile',
             props: [
-                'user' => UserProfileResource::make($user->loadCount(['tweets'])),
-                'tweets' => TimelineTweetsResource::collection($tweets)
+                'user' => UserProfileResource::make($user),
+                'tweets' => TimelineTweetsResource::collection($tweets),
             ]
         );
     }
