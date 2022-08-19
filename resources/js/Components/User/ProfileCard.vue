@@ -51,17 +51,17 @@ const props = defineProps({
             <div class="mb-3 leading-tight text-gray-700 dark:text-neutral-200">
                 <p>{{ user.data.description }}</p>
             </div>
-            <div class="my-3 grid grid-cols-3 overflow-hidden items-center space-x-4">
+            <div class="my-3 grid grid-cols-4 overflow-hidden items-center space-x-4">
                 <span class="text-sm tracking-tight text-gray-600 flex gap-1">
-                    <LocationMarkerIcon class="w-5"/>
+                    <LocationMarkerIcon class="w-4 shrink-0"/>
                     <span class="truncate" :title="user.data.location">{{ user.data.location }}</span>
                 </span>
-                <span class="text-sm tracking-tight text-gray-600 flex gap-1">
-                    <LinkIcon class="w-5"/>
+                <span class="text-sm col-span-2 tracking-tight text-gray-600 flex gap-1">
+                    <LinkIcon class="w-4 shrink-0"/>
                     <a :href="user.data.url" :title="user.data.url" class="truncate">{{ user.data.url }}</a>
                 </span>
                 <span class="text-sm tracking-tight text-gray-600 flex gap-1">
-                    <CalendarIcon class="w-5"/>
+                    <CalendarIcon class="w-4 shrink-0"/>
                     <span class="truncate" :title="user.data.joined">{{ user.data.joined }}</span>
                 </span>
             </div>
