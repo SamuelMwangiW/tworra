@@ -10,7 +10,8 @@ This is a Twitter clone built on Laravel Jetstream with Inertia.
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/1807304/185608989-f6e81ad4-8c6f-4b9e-beff-6576940ed58c.png">
 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+In its current form, you can Tweet, Like Tweets, Follow/Unfollow, view user profiles and show timeline. 
+Some features e.g retweet, and threads do not work and are not planned for.
 
 ## Installing
 
