@@ -12,7 +12,7 @@ class ValidUsername implements InvokableRule
      * Run the validation rule.
      *
      * @param string $attribute
-     * @param mixed $value
+     * @param string $value
      * @param \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString $fail
      * @return void
      */
@@ -29,6 +29,7 @@ class ValidUsername implements InvokableRule
 
     protected function usernameIsReserved(string $value): bool
     {
+        /** @var array<int,string> $reservedUsernames */
         $reservedUsernames = config(
             key: 'tworra.reserved-usernames',
             default: []
