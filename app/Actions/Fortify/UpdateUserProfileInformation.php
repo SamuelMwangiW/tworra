@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Rules\ValidUsername;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
@@ -25,7 +26,14 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'username' => ['required', 'string', 'min:4', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'username' => [
+                'required',
+                'string',
+                new ValidUsername(),
+                'min:4',
+                'max:255',
+                Rule::unique('users')->ignore($user->id),
+            ],
             'url' => ['nullable', 'string', 'max:255'],
             'location' => ['nullable', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:300'],

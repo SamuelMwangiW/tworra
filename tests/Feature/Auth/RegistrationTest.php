@@ -11,7 +11,7 @@ test('registration screen can be rendered', function () {
 
     $response->assertStatus(200);
 })->skip(function () {
-    return ! Features::enabled(Features::registration());
+    return !Features::enabled(Features::registration());
 }, 'Registration support is not enabled.');
 
 test('registration screen cannot be rendered if support is disabled', function () {
@@ -29,7 +29,7 @@ test('new users can register', function () {
         'name' => 'Test User',
         'email' => 'test@example.com',
         'username' => 'john.doe',
-        'password' => $password= fake()->password(minLength: 8),
+        'password' => $password = fake()->password(minLength: 8),
         'password_confirmation' => $password,
         'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
     ]);
@@ -37,5 +37,43 @@ test('new users can register', function () {
     $this->assertAuthenticated();
     $response->assertRedirect(RouteServiceProvider::HOME);
 })->skip(function () {
-    return ! Features::enabled(Features::registration());
+    return !Features::enabled(Features::registration());
+}, 'Registration support is not enabled.');
+
+it('rejects invalid usernames to register', function (string $invalidUsername) {
+    $response = $this->post('/register', [
+        'name' => 'Test User',
+        'email' => 'should.fail@example.com',
+        'username' => $invalidUsername,
+        'password' => $password = fake()->password(minLength: 8),
+        'password_confirmation' => $password,
+        'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+    ]);
+
+    $response->assertInvalid(['username']);
+
+    $this->assertGuest();
+    $this->assertDatabaseMissing('users', ['email' => 'should.fail@example.com']);
+})->with('invalid-usernames')->skip(function () {
+    return !Features::enabled(Features::registration());
+}, 'Registration support is not enabled.');
+
+it('rejects reserved usernames to register', function (string $invalidUsername) {
+    config()->set('tworra.reserved-usernames', [$invalidUsername]);
+
+    $response = $this->post('/register', [
+        'name' => 'Test User',
+        'email' => 'should.fail@example.com',
+        'username' => $invalidUsername,
+        'password' => $password = fake()->password(minLength: 8),
+        'password_confirmation' => $password,
+        'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+    ]);
+
+    $response->assertInvalid(['username']);
+
+    $this->assertGuest();
+    $this->assertDatabaseMissing('users', ['email' => 'should.fail@example.com']);
+})->with('reserved-usernames')->skip(function () {
+    return !Features::enabled(Features::registration());
 }, 'Registration support is not enabled.');

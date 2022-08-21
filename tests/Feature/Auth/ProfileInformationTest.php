@@ -26,6 +26,7 @@ test('profile information can be updated', function () {
 });
 
 test('profile email and username can not be both updated', function () {
+    $this->withoutExceptionHandling();
     $this->actingAs($user = User::factory()->create());
 
     $response = $this->put('/user/profile-information', [
