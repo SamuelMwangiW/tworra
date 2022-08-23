@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -72,6 +73,17 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(
             related: Tweet::class,
             foreignKey: 'user_id'
+        );
+    }
+
+    /**
+     * @return HasManyThrough<Tweet>
+     */
+    public function retweets(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            related: Tweet::class,
+            through: Retweet::class
         );
     }
 
