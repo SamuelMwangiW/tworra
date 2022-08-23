@@ -27,6 +27,7 @@ defineProps({
                 </Link>
             </section>
             <FollowerFollowing
+                class="w-full md:w-[37.5rem]"
                 :user="user"
                 page="followers"
                 :users="followers"
