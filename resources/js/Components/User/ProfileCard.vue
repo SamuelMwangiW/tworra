@@ -1,5 +1,5 @@
 <script setup>
-import {LocationMarkerIcon, LinkIcon, CalendarIcon} from '@heroicons/vue/outline'
+import {MapPinIcon, LinkIcon, CalendarIcon} from '@heroicons/vue/24/outline'
 import {Link} from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
@@ -53,7 +53,7 @@ const props = defineProps({
             </div>
             <div class="my-3 grid grid-cols-4 overflow-hidden items-center space-x-4">
                 <span class="text-sm tracking-tight text-gray-600 flex gap-1">
-                    <LocationMarkerIcon class="w-4 shrink-0"/>
+                    <MapPinIcon class="w-4 shrink-0"/>
                     <span class="truncate" :title="user.data.location">{{ user.data.location }}</span>
                 </span>
                 <span class="text-sm col-span-2 tracking-tight text-gray-600 flex gap-1">

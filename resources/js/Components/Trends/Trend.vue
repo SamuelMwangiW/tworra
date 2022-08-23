@@ -1,5 +1,5 @@
 <script setup>
-import { DotsHorizontalIcon } from '@heroicons/vue/outline'
+import { EllipsisHorizontalIcon } from '@heroicons/vue/24/outline'
 
 defineProps({
     trend: Object,
@@ -16,7 +16,7 @@ defineProps({
             </span>
         </div>
         <div class="p-2 hover:bg-sky-100 ml-auto rounded-full group cursor-pointer hover-transition dark:hover:bg-neutral-800">
-            <DotsHorizontalIcon class="w-4 h-4 text-neutral-500 group-hover:text-sky-500" />
+            <EllipsisHorizontalIcon class="w-4 h-4 text-neutral-500 group-hover:text-sky-500" />
         </div>
     </div>
 </template>

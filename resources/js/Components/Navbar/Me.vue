@@ -1,5 +1,5 @@
 <script setup>
-import {DotsHorizontalIcon} from '@heroicons/vue/solid'
+import {EllipsisHorizontalIcon} from '@heroicons/vue/24/solid'
 import Avatar from '@/Components/Avatar.vue'
 import {usePage} from '@inertiajs/inertia-vue3'
 
@@ -21,6 +21,6 @@ const user = usePage().props.value.auth.user
                 <h2 class="text-neutral-500 -mt-1">@{{ user.username }}</h2>
             </div>
         </div>
-        <DotsHorizontalIcon class="w-4 h-4 text-neutral-500 desktop:block hidden"/>
+        <EllipsisHorizontalIcon class="w-4 h-4 text-neutral-500 desktop:block hidden"/>
     </div>
 </template>

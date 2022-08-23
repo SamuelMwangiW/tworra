@@ -3,16 +3,16 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue'
 import NavbarItem from './Item.vue'
 import TweetButton from './TweetButton.vue'
 import Me from './Me.vue'
-import { HomeIcon } from '@heroicons/vue/solid'
+import { HomeIcon } from '@heroicons/vue/24/solid'
 import {
     HashtagIcon,
     BellIcon,
-    MailIcon,
+    EnvelopeIcon,
     BookmarkIcon,
-    LogoutIcon,
+    ArrowRightOnRectangleIcon,
     UserIcon,
-    DotsCircleHorizontalIcon,
-} from '@heroicons/vue/outline'
+    EllipsisHorizontalCircleIcon,
+} from '@heroicons/vue/24/outline'
 
 </script>
 
@@ -31,9 +31,8 @@ import {
                 />
                 <NavbarItem :icon="HashtagIcon" name="Explore" :active="false"/>
                 <NavbarItem :icon="BellIcon" name="Notifications" :active="false"/>
-                <NavbarItem :icon="MailIcon" name="Messages" :active="false"/>
+                <NavbarItem :icon="EnvelopeIcon" name="Messages" :active="false"/>
                 <NavbarItem :icon="BookmarkIcon" name="Bookmarks" :active="false"/>
-<!--                <NavbarItem :icon="ViewListIcon" name="Lists" :active="false"/>-->
                 <NavbarItem
                     :icon="UserIcon"
                     name="Profile"
@@ -41,13 +40,13 @@ import {
                     :href="route('profile.show')"
                 />
                 <NavbarItem
-                    :icon="LogoutIcon"
+                    :icon="ArrowRightOnRectangleIcon"
                     name="Logout"
                     :active="false"
                     :href="route('logout')"
                     :post="true"
                 />
-                <NavbarItem :icon="DotsCircleHorizontalIcon" name="More" :active="false"/>
+                <NavbarItem :icon="EllipsisHorizontalCircleIcon" name="More" :active="false"/>
             </div>
             <TweetButton/>
         </div>

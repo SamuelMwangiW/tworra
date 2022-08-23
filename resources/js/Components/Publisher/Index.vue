@@ -1,5 +1,5 @@
 <script setup>
-import {ViewBoardsIcon} from '@heroicons/vue/solid'
+import {ViewColumnsIcon} from '@heroicons/vue/24/solid'
 import Avatar from '@/Components/Avatar.vue'
 import TextBox from './TextBox.vue'
 import Actions from './Actions.vue'
@@ -35,7 +35,7 @@ const postTweet = ()=> form.post('tweets',{
             <div class="flex items-center justify-between gap-4">
                 <div
                     class="hover:bg-sky-100 p-2 rounded-full transition-colors duration-500 ease-out cursor-pointer mobile:hidden">
-                    <ViewBoardsIcon class="w-5 h-5 text-sky-500"/>
+                    <ViewColumnsIcon class="w-5 h-5 text-sky-500"/>
                 </div>
                 <Actions/>
                 <spinner :percent="messageProgress" class="w-8 h-8" v-if="form.message"/>

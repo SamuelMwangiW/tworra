@@ -6,7 +6,8 @@ import TweetActions from './Actions.vue'
 
 defineProps({
     post: {type: Object, required: true}
-})
+});
+
 </script>
 
 <template>

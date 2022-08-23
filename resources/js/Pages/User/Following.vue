@@ -1,10 +1,10 @@
 <script setup>
 import { Head,Link } from '@inertiajs/inertia-vue3';
-import { SearchIcon } from '@heroicons/vue/outline'
+import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 import TwitterLayout from '@/Layouts/Twitter/Index.vue'
 import Trends from '@/Components/Trends/Index.vue'
 import FollowerFollowing from '@/Components/Follow/Index.vue'
-import {ArrowLeftIcon} from '@heroicons/vue/solid'
+import {ArrowLeftIcon} from '@heroicons/vue/24/solid'
 
 defineProps({
     user: Object,
@@ -36,7 +36,7 @@ defineProps({
         <div class="laptop:block hidden px-8 space-y-1">
             <section class="sticky top-0 py-3 bg-white dark:bg-neutral-900 z-20">
                 <div class="flex items-center gap-4 px-4 py-2 bg-neutral-100 dark:bg-neutral-800 focus-within:bg-neutral-50 dark:focus-within:bg-neutral-800 group focus-within:ring-1 ring-sky-500 rounded-full">
-                    <SearchIcon class="w-5 h-5 text-neutral-500 dark:text-neutral-200 group-focus-within:text-sky-500" />
+                    <MagnifyingGlassIcon class="w-5 h-5 text-neutral-500 dark:text-neutral-200 group-focus-within:text-sky-500" />
                     <input
                         type="text"
                         placeholder="Search Twitter"
