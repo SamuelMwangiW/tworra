@@ -15,7 +15,7 @@ class LikeTweet
     {
         $liked = $tweet->likes()->toggle($request->user())['attached'];
 
-        if(collect($liked)->count()) {
+        if (collect($liked)->count()) {
             TweetLikedEvent::dispatch($tweet, $request->user());
         }
 

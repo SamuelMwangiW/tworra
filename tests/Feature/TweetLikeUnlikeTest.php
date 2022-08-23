@@ -34,7 +34,7 @@ test('liking a tweet dispatches TweetLiked event', function () {
 
     Event::assertDispatched(
         event: TweetLikedEvent::class,
-        callback: fn(TweetLikedEvent $event) => expect($event)
+        callback: fn (TweetLikedEvent $event) => expect($event)
             ->user->toBe($user)
             ->tweet->id->toBe($tweet->id)
     );

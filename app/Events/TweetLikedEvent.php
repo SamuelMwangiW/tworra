@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Events;
 
 use App\Models\Tweet;
@@ -13,10 +15,13 @@ use Illuminate\Queue\SerializesModels;
 
 class TweetLikedEvent implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     public function __construct(
-        public readonly Tweet $tweet, public readonly User $user
+        public readonly Tweet $tweet,
+        public readonly User $user
     ) {
     }
 
