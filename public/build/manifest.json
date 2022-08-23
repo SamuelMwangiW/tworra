@@ -28,7 +28,7 @@
       "resources/js/Pages/User/UserProfile.vue"
     ],
     "css": [
-      "assets/app.75a35c9d.css"
+      "assets/app.6a60ac4c.css"
     ]
   },
   "resources/js/Pages/API/Index.vue": {
@@ -479,7 +479,7 @@
     "src": "resources/js/Pages/Timeline.css"
   },
   "resources/js/app.css": {
-    "file": "assets/app.75a35c9d.css",
+    "file": "assets/app.6a60ac4c.css",
     "src": "resources/js/app.css"
   }
 }
