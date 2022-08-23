@@ -15,7 +15,7 @@ defineProps({
     <Head title="Welcome" ></Head>
 
     <TwitterLayout>
-        <div class="max-w-[37.5rem] border-x-[0.5px] dark:border-neutral-600">
+        <div class="max-w-[37.5rem] md:min-w-[37.5rem] border-x-[0.5px] dark:border-neutral-600">
             <section class="sticky top-0 px-4 py-2 bg-white dark:bg-neutral-900">
                 <h1 class="text-lg font-bold">Home</h1>
             </section>
