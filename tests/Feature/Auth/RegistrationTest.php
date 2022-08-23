@@ -58,13 +58,13 @@ it('rejects invalid usernames to register', function (string $invalidUsername) {
     return ! Features::enabled(Features::registration());
 }, 'Registration support is not enabled.');
 
-it('rejects reserved usernames to register', function (string $invalidUsername) {
-    config()->set('tworra.reserved-usernames', [$invalidUsername]);
+it('rejects reserved usernames to register', function (string $reservedUsername) {
+    config()->set('tworra.reserved-usernames', [$reservedUsername]);
 
     $response = $this->post('/register', [
         'name' => 'Test User',
         'email' => 'should.fail@example.com',
-        'username' => $invalidUsername,
+        'username' => $reservedUsername,
         'password' => $password = fake()->password(minLength: 8),
         'password_confirmation' => $password,
         'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
