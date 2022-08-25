@@ -13,6 +13,7 @@ class ReTweetController
 {
     public function __invoke(Tweet $tweet, Request $request): RedirectResponse
     {
+        /** @phpstan-ignore-next-line  */
         TweetRetweetedEvent::dispatch($tweet, $request->user());
 
         return back();

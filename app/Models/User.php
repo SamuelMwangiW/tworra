@@ -82,11 +82,12 @@ class User extends Authenticatable implements MustVerifyEmail
             ->create(['user_id' => $this->id]);
     }
 
-    public function undoRetweet(Tweet $tweet): int
+    public function undoRetweet(Tweet $tweet): mixed
     {
         return $tweet
             ->retweets()
-            ->delete(['user_id' => $this->id]);
+            ->where(['user_id' => $this->id])
+            ->delete();
     }
 
     public function hasRetweeted(Tweet $tweet): bool

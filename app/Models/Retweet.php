@@ -12,7 +12,7 @@ class Retweet extends Model
     protected $guarded = ['id'];
 
     /**
-     * @return BelongsTo<User>
+     * @return BelongsTo<User,Retweet>
      */
     public function user(): BelongsTo
     {
@@ -22,7 +22,7 @@ class Retweet extends Model
     }
 
     /**
-     * @return BelongsTo<Tweet>
+     * @return BelongsTo<Tweet,Retweet>
      */
     public function tweet(): BelongsTo
     {
