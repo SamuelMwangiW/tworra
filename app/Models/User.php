@@ -76,14 +76,37 @@ class User extends Authenticatable implements MustVerifyEmail
         );
     }
 
-    /**
-     * @return HasManyThrough<Tweet>
-     */
-    public function retweets(): HasManyThrough
+    public function retweet(Tweet $tweet): Retweet
     {
-        return $this->hasManyThrough(
-            related: Tweet::class,
-            through: Retweet::class
+        return $tweet
+            ->retweets()
+            ->create(['user_id' => $this->id]);
+    }
+
+    public function undoRetweet(Tweet $tweet): int
+    {
+        return $tweet
+            ->retweets()
+            ->delete(['user_id' => $this->id]);
+    }
+
+    public function hasRetweeted(Tweet $tweet): bool
+    {
+        return Retweet::query()->where(
+            [
+                'user_id' => $this->id,
+                'tweet_id' => $tweet->id,
+            ]
+        )->exists();
+    }
+
+    /**
+     * @return HasMany<Retweet>
+     */
+    public function retweets(): HasMany
+    {
+        return $this->hasMany(
+            related: Retweet::class,
         );
     }
 

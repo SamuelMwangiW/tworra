@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -44,9 +45,9 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function asUser(): TestCase
+function asUser(?User $user = null): TestCase
 {
-    $user = \App\Models\User::factory()->create();
+    $user = $user ?? User::factory()->create();
 
     return test()->actingAs($user);
 }
