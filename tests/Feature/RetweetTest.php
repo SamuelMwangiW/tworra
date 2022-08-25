@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Events\TweetRetweetedEvent;
 use App\Models\Tweet;
 use App\Models\User;
@@ -42,7 +44,7 @@ it('dispatches a TweetRetweeted event', function () {
 
     Event::assertDispatched(
         event: TweetRetweetedEvent::class,
-        callback:  fn(TweetRetweetedEvent $event) => $event->tweet->is($tweet)
+        callback:  fn (TweetRetweetedEvent $event) => $event->tweet->is($tweet)
     );
 });
 
