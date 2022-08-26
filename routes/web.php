@@ -8,6 +8,7 @@ use App\Http\Controllers\Follow\CreateController;
 use App\Http\Controllers\Follow\DestroyController;
 use App\Http\Controllers\Tweets\LikeTweet;
 use App\Http\Controllers\Tweets\PostTweet;
+use App\Http\Controllers\Tweets\ShowTweet;
 use App\Http\Controllers\Tweets\ReTweetController;
 use App\Http\Controllers\User\ShowUserProfile;
 use App\Http\Controllers\User\TimelineController;
@@ -19,6 +20,9 @@ Route::post('/tweets/{tweet}/like', LikeTweet::class)->name('tweet.like');
 Route::post('/tweets/{tweet}/retweet', ReTweetController::class)->name('tweet.retweet');
 Route::get('/{user:username}/following', ShowFollowing::class)->name('following');
 Route::get('/{user:username}/followers', ShowFollowers::class)->name('followers');
+Route::get('/{user:username}/status/{tweet:id}', ShowTweet::class)
+    ->scopeBindings()
+    ->name('tweet.show');
 Route::get('/{user:username}/mutual-followers', ShowFollowers::class)->name('followers.mutual');
 Route::post('/{user:username}/follow', CreateController::class)->name('follow.create');
 Route::delete('/{user:username}/follow', DestroyController::class)->name('follow.destroy');

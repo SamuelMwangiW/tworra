@@ -3,6 +3,7 @@ import {Link} from '@inertiajs/inertia-vue3'
 import {EllipsisHorizontalIcon} from '@heroicons/vue/24/solid'
 
 defineProps({
+    id: Number,
     name: String,
     username: String,
     time: String,
@@ -18,7 +19,10 @@ defineProps({
             @{{ username }}
         </Link>
         <span class="text-neutral-500">•</span>
-        <h2 class="text-neutral-500">{{ time }}</h2>
+        <Link
+            class="text-neutral-500 hover:underline"
+            :href="route('tweet.show',{user:username,tweet:id})"
+        >{{ time }}</Link>
         <div
             class="p-2 hover:bg-sky-100 ml-auto rounded-full group cursor-pointer transition-colors duration-500 ease-out">
             <EllipsisHorizontalIcon class="w-4 h-4 text-neutral-400 group-hover:text-sky-500"/>

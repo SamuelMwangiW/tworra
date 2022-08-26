@@ -18,13 +18,21 @@ defineProps({
                 <Avatar :src="post.user.profilePhotoUrl" :alt="post.user.username"/>
             </Link>
             <div>
-                <TweetHeading :name='post.user.name' :username='post.user.username' :time='post.time'/>
-                <p>{{ post.message }}</p>
+                <TweetHeading
+                    :id="post.id"
+                    :name='post.user.name'
+                    :username='post.user.username'
+                    :time='post.time'
+                />
+                <Link :href="route('tweet.show',{user:post.user.username,tweet:post.id})">
+                    {{ post.message }}
+                </Link>
                 <TweetActions
                     :replies='post.replies'
                     :retweets='post.retweets'
                     :likes='post.likes'
                     :liked='post.liked'
+                    :retweeted='post.retweeted'
                     :tweet-id="post.id"
                 />
             </div>

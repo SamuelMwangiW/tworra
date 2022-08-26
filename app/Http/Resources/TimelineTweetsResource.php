@@ -21,10 +21,11 @@ class TimelineTweetsResource extends JsonResource
             'message' => $this->message,
             'time' => $this->created_at?->diffForHumans(),
             'liked' => $this?->liked ?? false,
+            'retweeted' => $this?->retweeted ?? false,
             /** @phpstan-ignore-next-line  */
             'likes' => $this->whenCounted(relationship: 'likes', value: $this->likes_count, default: 0),
             'replies' => 0,
-            'retweets' => 0,
+            'retweets' => $this->whenCounted(relationship: 'retweets', value: $this->retweets_count, default: 0),
 
             'user' => TimelineTweetUserResource::make(
                 $this->whenLoaded('user')

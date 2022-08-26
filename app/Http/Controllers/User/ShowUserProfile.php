@@ -23,9 +23,11 @@ class ShowUserProfile extends Controller
             ->with(['user'])
             ->withCount([
                 'likes',
-                'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id()),
+                'retweets',
+                'likes as liked' => fn(Builder $q) => $q->where('user_id', auth()->id()),
+                'retweets as retweeted' => fn(Builder $q) => $q->where('user_id', auth()->id()),
             ])
-            ->withCasts(['liked'=>'boolean'])
+            ->withCasts(['liked' => 'boolean','retweeted' => 'boolean'])
             ->simplePaginate();
 
         if ($request->wantsJson()) {
