@@ -6,11 +6,16 @@ namespace App\Http\Controllers\Tweets;
 
 use App\Models\Tweet;
 use App\Models\User;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class ShowTweet
 {
-    public function __invoke(User $user, Tweet $tweet)
+    public function __invoke(User $user, Tweet $tweet): Response
     {
-        // TODO: Implement __invoke() method.
+        return Inertia::render(
+            component: 'Tweet',
+            props: ['tweet' => $tweet]
+        );
     }
 }

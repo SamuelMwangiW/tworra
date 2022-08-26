@@ -25,6 +25,7 @@ class TimelineTweetsResource extends JsonResource
             /** @phpstan-ignore-next-line  */
             'likes' => $this->whenCounted(relationship: 'likes', value: $this->likes_count, default: 0),
             'replies' => 0,
+            /** @phpstan-ignore-next-line  */
             'retweets' => $this->whenCounted(relationship: 'retweets', value: $this->retweets_count, default: 0),
 
             'user' => TimelineTweetUserResource::make(
