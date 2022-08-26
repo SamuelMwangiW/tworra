@@ -34,18 +34,20 @@ test('timeline contains users tweets', function () {
                 ->has(
                     'tweets.data',
                     fn (AssertableInertia $data) => $data
-                    ->count(5)
-                    ->each(
-                        fn (AssertableInertia $tweet) => $tweet
-                        ->hasAll(['id', 'message', 'time', 'likes', 'replies', 'liked', 'retweets'])
-                        ->has(
-                            'user',
-                            fn (AssertableInertia $owner) => $owner
-                            ->where('name', $user->name)
-                            ->where('username', $user->username)
-                            ->where('profilePhotoUrl', $user->profile_photo_url)
+                        ->count(5)
+                        ->each(
+                            fn (AssertableInertia $tweet) => $tweet
+                                ->hasAll(
+                                    ['id', 'message', 'time', 'likes', 'replies', 'liked', 'retweets', 'retweeted']
+                                )
+                                ->has(
+                                    'user',
+                                    fn (AssertableInertia $owner) => $owner
+                                        ->where('name', $user->name)
+                                        ->where('username', $user->username)
+                                        ->where('profilePhotoUrl', $user->profile_photo_url)
+                                )
                         )
-                    )
                 )
         );
 });
@@ -73,19 +75,20 @@ test('timeline contains following tweets', function () {
                 ->has(
                     'tweets.data',
                     fn (AssertableInertia $data) => $data
-                    ->count(9)
-                    ->each(
-                        fn (AssertableInertia $tweet) => $tweet->hasAll([
-                            'id',
-                            'message',
-                            'time',
-                            'likes',
-                            'replies',
-                            'liked',
-                            'retweets',
-                            'user',
-                        ])
-                    )
+                        ->count(9)
+                        ->each(
+                            fn (AssertableInertia $tweet) => $tweet->hasAll([
+                                'id',
+                                'message',
+                                'time',
+                                'likes',
+                                'replies',
+                                'liked',
+                                'retweets',
+                                'retweeted',
+                                'user',
+                            ])
+                        )
                 )
         );
 });

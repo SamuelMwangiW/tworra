@@ -32,7 +32,7 @@ it('passes user tweets to their profile', function () {
         ->has(Tweet::factory()->count(10))
         ->create();
 
-    $otherTweets = Tweet::factory()
+    Tweet::factory()
         ->count(5)
         ->create();
 
@@ -67,7 +67,18 @@ it('passes user tweets to their profile', function () {
                             fn (AssertableInertia $tweets) => $tweets
                                 ->each(
                                     fn (AssertableInertia $tweet) => $tweet
-                                        ->hasAll(['id', 'message', 'time', 'liked', 'likes', 'replies', 'retweets'])
+                                        ->hasAll(
+                                            [
+                                                'id',
+                                                'message',
+                                                'time',
+                                                'liked',
+                                                'likes',
+                                                'replies',
+                                                'retweets',
+                                                'retweeted',
+                                            ]
+                                        )
                                         ->has(
                                             'user',
                                             fn (AssertableInertia $user) => $user->hasAll(
