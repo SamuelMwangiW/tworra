@@ -24,8 +24,8 @@ class ShowUserProfile extends Controller
             ->withCount([
                 'likes',
                 'retweets',
-                'likes as liked' => fn(Builder $q) => $q->where('user_id', auth()->id()),
-                'retweets as retweeted' => fn(Builder $q) => $q->where('user_id', auth()->id()),
+                'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id()),
+                'retweets as retweeted' => fn (Builder $q) => $q->where('user_id', auth()->id()),
             ])
             ->withCasts(['liked' => 'boolean','retweeted' => 'boolean'])
             ->simplePaginate();

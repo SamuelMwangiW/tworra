@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Inertia\Inertia;
 use Inertia\Response;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class TimelineController extends Controller
 {
@@ -43,8 +42,8 @@ class TimelineController extends Controller
             ->withCount([
                 'likes',
                 'retweets',
-                'likes as liked' => fn(Builder $q) => $q->where('user_id', auth()->id()),
-                'retweets as retweeted' => fn(Builder $q) => $q->where('user_id', auth()->id()),
+                'likes as liked' => fn (Builder $q) => $q->where('user_id', auth()->id()),
+                'retweets as retweeted' => fn (Builder $q) => $q->where('user_id', auth()->id()),
             ])
             ->withCasts(['liked' => 'boolean','retweeted' => 'boolean'])
             ->simplePaginate();
