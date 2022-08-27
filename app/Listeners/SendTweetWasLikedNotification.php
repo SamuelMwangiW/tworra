@@ -17,6 +17,7 @@ class SendTweetWasLikedNotification
         if ($lock->get()) {
             $event->tweet->load(['user']);
 
+            /** @phpstan-ignore-next-line  */
             $event->tweet->user->notify(new TweetWasLiked($event->tweet, $event->user));
         }
     }

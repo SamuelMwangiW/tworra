@@ -22,6 +22,7 @@ class SendTweetRetweetedNotification
         if ($event->user->hasRetweeted(tweet: $event->tweet)) {
             $event->tweet->load(['user']);
 
+            /** @phpstan-ignore-next-line */
             $event->tweet->user->notify(new TweetWasRetweeted($event->tweet, $event->user));
         }
     }

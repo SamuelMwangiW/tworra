@@ -13,8 +13,10 @@ class CreateController
 {
     public function __invoke(Request $request, User $user): RedirectResponse
     {
-        $request->user()?->following()?->attach($user);
-        $user->notify(new UserWasFollowed(follower: $request->user()));
+        /** @var User $authUser */
+        $authUser = $request->user();
+        $authUser->following()->attach($user);
+        $user->notify(new UserWasFollowed(follower: $authUser));
 
         return redirect()->back();
     }
