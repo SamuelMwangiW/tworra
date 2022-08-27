@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Notifications;
 
 use App\Models\User;
@@ -41,7 +43,7 @@ class UserWasFollowed extends Notification implements ShouldQueue
      */
     public function toMail(User $notifiable): MailMessage
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->subject("@{$this->follower->username} follows you")
             ->greeting("Hey {$notifiable->name},")
             ->line('You have a new follower.')

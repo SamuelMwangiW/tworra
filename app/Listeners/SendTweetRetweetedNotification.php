@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Listeners;
 
 use App\Events\TweetRetweetedEvent;
@@ -13,7 +15,7 @@ class SendTweetRetweetedNotification
         // Avoid multiple notifications for the same tweet
         $lock = Cache::lock($this->lockKey($event), 86400);
 
-        if (!$lock->get()) {
+        if (! $lock->get()) {
             return;
         }
 

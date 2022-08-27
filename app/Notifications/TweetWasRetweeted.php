@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Notifications;
 
 use App\Models\Tweet;
@@ -10,7 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class TweetWasRetweeted extends Notification implements ShouldQueue,ShouldBeUnique
+class TweetWasRetweeted extends Notification implements ShouldQueue, ShouldBeUnique
 {
     use Queueable;
 
@@ -48,7 +50,7 @@ class TweetWasRetweeted extends Notification implements ShouldQueue,ShouldBeUniq
      */
     public function toMail(User $notifiable): MailMessage
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->subject("@{$this->user->username} Retweeted your tweet")
             ->greeting("Hey @{$notifiable->username}")
             ->line("{$this->user->name} retweeted your tweet")

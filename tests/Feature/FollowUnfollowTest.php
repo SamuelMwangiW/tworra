@@ -26,7 +26,7 @@ it('notifies a user of a new follower', function () {
         ->post("/{$followee->username}/follow")
         ->assertSessionHasNoErrors();
 
-    Notification::assertSentToTimes($followee, UserWasFollowed::class,1);
+    Notification::assertSentToTimes($followee, UserWasFollowed::class, 1);
 });
 
 it('unfollows a user', function () {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Notifications;
 
 use App\Models\Tweet;
@@ -43,7 +45,7 @@ class TweetWasLiked extends Notification implements ShouldQueue, ShouldBeUnique
      */
     public function toMail(User $notifiable): MailMessage
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->subject('Your tweet received a ❤️')
             ->greeting("Hey {$notifiable->username}")
             ->line('Your tweet received a like')

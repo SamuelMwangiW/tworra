@@ -58,7 +58,7 @@ it('sends a TweetWasRetweeted notification', function () {
     $user = User::factory()->create();
     TweetRetweetedEvent::dispatch($tweet, $user);
 
-    Notification::assertSentToTimes($tweet->user, TweetWasRetweeted::class,1);
+    Notification::assertSentToTimes($tweet->user, TweetWasRetweeted::class, 1);
 })->skip();
 
 it('toggles a retweet', function () {
