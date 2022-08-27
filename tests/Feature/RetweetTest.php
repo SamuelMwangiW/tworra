@@ -5,7 +5,9 @@ declare(strict_types=1);
 use App\Events\TweetRetweetedEvent;
 use App\Models\Tweet;
 use App\Models\User;
+use App\Notifications\TweetWasRetweeted;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Notification;
 
 it('tweets a tweet', function () {
     $user = User::factory()->create();
@@ -48,7 +50,16 @@ it('dispatches a TweetRetweeted event', function () {
     );
 });
 
+it('sends a TweetWasRetweeted notification', function () {
+    Notification::fake();
+    \Illuminate\Support\Facades\Bus::fake();
+    $tweet = Tweet::factory()->create();
 
+    $user = User::factory()->create();
+    TweetRetweetedEvent::dispatch($tweet, $user);
+
+    Notification::assertSentToTimes($tweet->user, TweetWasRetweeted::class,1);
+})->skip();
 
 it('toggles a retweet', function () {
     $tweet = Tweet::factory()->create();
