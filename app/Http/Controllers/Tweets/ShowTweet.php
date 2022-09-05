@@ -7,8 +7,6 @@ namespace App\Http\Controllers\Tweets;
 use App\Models\Tweet;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-//use Inertia\Inertia;
-//use Inertia\Response;
 
 class ShowTweet
 {
