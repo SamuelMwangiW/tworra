@@ -1453,16 +1453,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.12.1",
+            "version": "v2.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "5749eec74fa2a04eafe5eb5598261ae21455eede"
+                "reference": "a68b65690a6b49d83ad3deb4c57f84528e55ab15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/5749eec74fa2a04eafe5eb5598261ae21455eede",
-                "reference": "5749eec74fa2a04eafe5eb5598261ae21455eede",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/a68b65690a6b49d83ad3deb4c57f84528e55ab15",
+                "reference": "a68b65690a6b49d83ad3deb4c57f84528e55ab15",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1519,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2022-09-12T14:03:57+00:00"
+            "time": "2022-09-15T13:11:46+00:00"
         },
         {
             "name": "laravel/sanctum",
