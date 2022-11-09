@@ -15,7 +15,7 @@
         "@vitejs/plugin-vue": "^3.1.2",
         "@vue/server-renderer": "^3.2.41",
         "autoprefixer": "^10.4.12",
-        "axios": "^0.27",
+        "axios": "^1.1",
         "laravel-vite-plugin": "^0.6.1",
         "lodash": "^4.17.21",
         "postcss": "^8.4.18",
