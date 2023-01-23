@@ -1456,22 +1456,22 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.14.1",
+            "version": "v2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "6f661f6355be719490107cc0dd8e424083af3ca9"
+                "reference": "ab711bf1ddba2d9af257350eeb0412e6e9d46452"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/6f661f6355be719490107cc0dd8e424083af3ca9",
-                "reference": "6f661f6355be719490107cc0dd8e424083af3ca9",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/ab711bf1ddba2d9af257350eeb0412e6e9d46452",
+                "reference": "ab711bf1ddba2d9af257350eeb0412e6e9d46452",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "illuminate/console": "^9.21",
-                "illuminate/support": "^9.21",
+                "illuminate/console": "^9.21|^10.0",
+                "illuminate/support": "^9.21|^10.0",
                 "jenssegers/agent": "^2.6",
                 "laravel/fortify": "^1.15",
                 "php": "^8.0.2"
@@ -1480,10 +1480,10 @@
                 "laravel/framework": "<9.37.0"
             },
             "require-dev": {
-                "inertiajs/inertia-laravel": "^0.6.4",
+                "inertiajs/inertia-laravel": "^0.6.5",
                 "laravel/sanctum": "^3.0",
                 "mockery/mockery": "^1.0",
-                "orchestra/testbench": "^7.0",
+                "orchestra/testbench": "^7.0|^8.0",
                 "phpunit/phpunit": "^9.3"
             },
             "type": "library",
@@ -1522,7 +1522,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2023-01-09T14:38:56+00:00"
+            "time": "2023-01-18T23:01:15+00:00"
         },
         {
             "name": "laravel/sanctum",
