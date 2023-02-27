@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e49ac280a642dd398b0a038a3f9998d9",
+    "content-hash": "f33e1b411239b3791c96d99e22b7fd3f",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1551,16 +1551,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.16.1",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "16cafeb0965c7332c8cda8d63a965e887ddab334"
+                "reference": "1b8db2e3506b1d3e003ea5968f508b966aec056c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/16cafeb0965c7332c8cda8d63a965e887ddab334",
-                "reference": "16cafeb0965c7332c8cda8d63a965e887ddab334",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/1b8db2e3506b1d3e003ea5968f508b966aec056c",
+                "reference": "1b8db2e3506b1d3e003ea5968f508b966aec056c",
                 "shasum": ""
             },
             "require": {
@@ -1584,7 +1584,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "3.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -1617,7 +1617,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2023-02-03T14:19:22+00:00"
+            "time": "2023-02-15T14:52:33+00:00"
         },
         {
             "name": "laravel/sanctum",
