@@ -13,9 +13,9 @@ class ShowTweet
     public function __invoke(User $user, Tweet $tweet): RedirectResponse
     {
         return redirect('/');
-//        return Inertia::render(
-//            component: 'Tweet',
-//            props: ['tweet' => $tweet]
-//        );
+        //        return Inertia::render(
+        //            component: 'Tweet',
+        //            props: ['tweet' => $tweet]
+        //        );
     }
 }

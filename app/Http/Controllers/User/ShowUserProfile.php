@@ -38,7 +38,7 @@ class ShowUserProfile extends Controller
             ->loadCount([
                 'followers as is_following' => fn (Builder $query) => $query->where('follower_id', auth()->id()),
             ])->loadCount(['tweets', 'followers', 'following'])
-            ->withCasts(['is_following'=>'boolean']);
+            ->withCasts(['is_following' => 'boolean']);
 
         return Inertia::render(
             component: 'User/UserProfile',
