@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import JetActionMessage from '@/Components/ActionMessage.vue';
 import JetActionSection from '@/Components/ActionSection.vue';
 import JetButton from '@/Components/Button.vue';

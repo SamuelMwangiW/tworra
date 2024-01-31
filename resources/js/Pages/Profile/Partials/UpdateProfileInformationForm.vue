@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
-import { Link, useForm } from '@inertiajs/inertia-vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import JetButton from '@/Components/Button.vue';
 import JetFormSection from '@/Components/FormSection.vue';
 import JetTextarea from '@/Components/Textarea.vue';
@@ -16,7 +15,6 @@ const props = defineProps({
 });
 
 const form = useForm({
-    _method: 'PUT',
     name: props.user.name,
     email: props.user.email,
     username: props.user.username,
@@ -25,6 +23,8 @@ const form = useForm({
     description: props.user.description,
     photo: null,
 });
+
+const emptyForm = useForm({});
 
 const verificationLinkSent = ref(null);
 const photoPreview = ref(null);
@@ -35,7 +35,7 @@ const updateProfileInformation = () => {
         form.photo = photoInput.value.files[0];
     }
 
-    form.post(route('user-profile-information.update'), {
+    form.put(route('user-profile-information.update'), {
         errorBag: 'updateProfileInformation',
         preserveScroll: true,
         onSuccess: () => clearPhotoFileInput(),
@@ -65,7 +65,7 @@ const updatePhotoPreview = () => {
 };
 
 const deletePhoto = () => {
-    Inertia.delete(route('current-user-photo.destroy'), {
+    emptyForm.delete(route('current-user-photo.destroy'), {
         preserveScroll: true,
         onSuccess: () => {
             photoPreview.value = null;

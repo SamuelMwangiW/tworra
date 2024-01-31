@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head, Link,useForm } from '@inertiajs/vue3';
 import JetApplicationMark from '@/Components/ApplicationMark.vue';
 import JetBanner from '@/Components/Banner.vue';
 import JetDropdown from '@/Components/Dropdown.vue';
@@ -13,18 +12,20 @@ defineProps({
     title: String,
 });
 
+const form = useForm({
+    team_id: team.id,
+});
+
 const showingNavigationDropdown = ref(false);
 
 const switchToTeam = (team) => {
-    Inertia.put(route('current-team.update'), {
-        team_id: team.id,
-    }, {
+    form.put(route('current-team.update'), {
         preserveState: false,
     });
 };
 
 const logout = () => {
-    Inertia.post(route('logout'));
+    form.post(route('logout'));
 };
 </script>
 

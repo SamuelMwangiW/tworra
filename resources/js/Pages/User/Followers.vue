@@ -1,5 +1,5 @@
 <script setup>
-import { Head,Link } from '@inertiajs/inertia-vue3';
+import { Head,Link } from '@inertiajs/vue3';
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 import TwitterLayout from '@/Layouts/Twitter/Index.vue'
 import Trends from '@/Components/Trends/Index.vue'

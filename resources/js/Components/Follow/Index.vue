@@ -1,5 +1,5 @@
 <script setup>
-import {Link} from '@inertiajs/inertia-vue3'
+import {Link} from '@inertiajs/vue3'
 import FollowingHeader from './Header.vue'
 import Avatar from '@/Components/Avatar.vue'
 

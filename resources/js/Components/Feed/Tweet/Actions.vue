@@ -1,5 +1,5 @@
 <script setup>
-import {Link} from '@inertiajs/inertia-vue3'
+import {Link} from '@inertiajs/vue3'
 import Rune from '@/Components/Rune.vue'
 import {ChatBubbleLeftIcon, ArrowPathIcon, HeartIcon, ArrowUpTrayIcon} from '@heroicons/vue/24/outline'
 

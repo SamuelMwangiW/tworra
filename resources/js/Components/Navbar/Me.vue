@@ -1,7 +1,7 @@
 <script setup>
 import {EllipsisHorizontalIcon} from '@heroicons/vue/24/solid'
 import Avatar from '@/Components/Avatar.vue'
-import {usePage} from '@inertiajs/inertia-vue3'
+import {usePage} from '@inertiajs/vue3'
 
 const user = usePage().props.value.auth.user
 </script>

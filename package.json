@@ -7,10 +7,7 @@
     },
     "devDependencies": {
         "@heroicons/vue": "^2.1.1",
-        "@inertiajs/inertia": "^0.11.1",
-        "@inertiajs/inertia-vue3": "^0.6.0",
-        "@inertiajs/progress": "^0.2.7",
-        "@inertiajs/server": "^0.1.0",
+        "@inertiajs/vue3": "^1.0.14",
         "@tailwindcss/forms": "^0.5.7",
         "@tailwindcss/typography": "^0.5.10",
         "@vitejs/plugin-vue": "^5.0.3",

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Head, useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 import JetAuthenticationCard from '@/Components/AuthenticationCard.vue';
 import JetAuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
 import JetButton from '@/Components/Button.vue';

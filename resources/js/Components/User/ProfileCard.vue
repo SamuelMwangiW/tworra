@@ -1,6 +1,6 @@
 <script setup>
 import {MapPinIcon, LinkIcon, CalendarIcon} from '@heroicons/vue/24/outline'
-import {Link} from '@inertiajs/inertia-vue3'
+import {Link} from '@inertiajs/vue3'
 
 const props = defineProps({
     user: Object
