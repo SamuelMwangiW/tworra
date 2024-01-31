@@ -41,7 +41,7 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('login', function (Request $request) {
             $limiter = $request
                 ->string('email')
-                ->append($request->ip());
+                ->append($request->ip() ?? '');
 
             return Limit::perMinute(5)->by($limiter->value());
         });
