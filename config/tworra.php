@@ -9,5 +9,5 @@ return [
         'tweet',
         'admin',
         'dashboard',
-    ]
+    ],
 ];
