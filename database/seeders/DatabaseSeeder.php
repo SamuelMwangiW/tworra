@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $adminUser = User::factory()
             ->has(Tweet::factory()->count(5))
