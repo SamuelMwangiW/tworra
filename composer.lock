@@ -1236,16 +1236,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.24.2",
+            "version": "v1.24.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "42695c45087e5abb3e173725b4f1ef4956a7b47d"
+                "reference": "5bd3bdd535acf4054865c64eec6d8bb8c60cc127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/42695c45087e5abb3e173725b4f1ef4956a7b47d",
-                "reference": "42695c45087e5abb3e173725b4f1ef4956a7b47d",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/5bd3bdd535acf4054865c64eec6d8bb8c60cc127",
+                "reference": "5bd3bdd535acf4054865c64eec6d8bb8c60cc127",
                 "shasum": ""
             },
             "require": {
@@ -1297,7 +1297,7 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2024-09-16T19:20:52+00:00"
+            "time": "2024-10-29T13:59:23+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1510,16 +1510,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "c9c23e14ac6c9cef7daf4f2754382de1ba5d567e"
+                "reference": "d51ec6942f34e76ba4736452d5f4d6f54a186a6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/c9c23e14ac6c9cef7daf4f2754382de1ba5d567e",
-                "reference": "c9c23e14ac6c9cef7daf4f2754382de1ba5d567e",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/d51ec6942f34e76ba4736452d5f4d6f54a186a6e",
+                "reference": "d51ec6942f34e76ba4736452d5f4d6f54a186a6e",
                 "shasum": ""
             },
             "require": {
@@ -1573,7 +1573,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2024-10-12T16:23:32+00:00"
+            "time": "2024-10-30T13:32:43+00:00"
         },
         {
             "name": "laravel/prompts",
