@@ -16,7 +16,7 @@ defineProps({
     <Head :title="`${user.data.name} @(${user.data.username})`" ></Head>
 
     <TwitterLayout>
-        <div class="max-w-[37.5rem] md:min-w-[37.5rem] border-x-[0.5px] dark:border-neutral-600">
+        <div class="max-w-150 md:min-w-150 border-x-[0.5px] dark:border-neutral-600">
             <section class="sticky top-0 px-4 py-2 bg-white dark:bg-neutral-900">
                 <h1 class="text-lg font-bold">Home</h1>
             </section>
@@ -30,7 +30,7 @@ defineProps({
                     <input
                         type="text"
                         placeholder="Search Twitter"
-                        class="text-base p-0 placeholder:text-base border-none focus:ring-0 focus:outline-none bg-transparent"
+                        class="text-base p-0 placeholder:text-base border-none focus:ring-0 focus:outline-hidden bg-transparent"
                     />
                 </div>
             </section>
