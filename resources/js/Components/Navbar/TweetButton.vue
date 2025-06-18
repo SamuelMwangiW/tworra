@@ -2,7 +2,7 @@
 
 </script>
 <template>
-    <button class="bg-sky-500 p-3 desktop:py-4 text-base font-bold text-white rounded-full max-w-[13.75rem] hover:bg-sky-400 hover-transition">
+    <button class="bg-sky-500 p-3 desktop:py-4 text-base font-bold text-white rounded-full max-w-55 hover:bg-sky-400 hover-transition">
         <span class="desktop:block hidden">Tweet</span>
         <div class="desktop:hidden w-6 h-6">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="fill-amber-200" fill="#F8FAFC">

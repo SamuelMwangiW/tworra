@@ -20,7 +20,7 @@ defineProps({
                     <Avatar :src="tweep.profilePhotoUrl"/>
                 </Link>
             </div>
-            <div class="flex-grow flex flex-col">
+            <div class="grow flex flex-col">
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col">
                         <Link :href="route('show-user-profile',tweep.username)">

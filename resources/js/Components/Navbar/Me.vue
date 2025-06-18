@@ -8,7 +8,7 @@ const user = usePage().props.value.auth.user
 
 <template>
     <div
-        class="flex items-center justify-between desktop:w-[17rem] hover:bg-slate-200 dark:hover:bg-slate-800 desktop:px-4 px-3 py-3 rounded-full hover-transition cursor-pointer">
+        class="flex items-center justify-between desktop:w-68 hover:bg-slate-200 dark:hover:bg-slate-800 desktop:px-4 px-3 py-3 rounded-full hover-transition cursor-pointer">
         <div class="flex items-center gap-2">
             <Avatar
                 :src="user.profile_photo_url"

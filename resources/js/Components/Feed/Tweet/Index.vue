@@ -13,7 +13,7 @@ defineProps({
 <template>
     <div
         class="border-t-[0.5px] dark:border-slate-600 px-4 pt-3 pb-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-500 ease-out">
-        <div class="grid grid-cols-[auto,1fr] gap-3">
+        <div class="grid grid-cols-[auto_1fr] gap-3">
             <Link :href="route('show-user-profile',{user:post.user.username})">
                 <Avatar :src="post.user.profilePhotoUrl" :alt="post.user.username"/>
             </Link>

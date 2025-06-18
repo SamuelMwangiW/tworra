@@ -25,7 +25,7 @@ const postTweet = ()=> form.post('tweets',{
 </script>
 
 <template>
-    <section class="px-4 pt-4 pb-2 grid grid-cols-[auto,1fr] gap-4 ">
+    <section class="px-4 pt-4 pb-2 grid grid-cols-[auto_1fr] gap-4 ">
         <Avatar
             :src="$page.props.auth.user.profile_photo_url"
             alt="Profile"
