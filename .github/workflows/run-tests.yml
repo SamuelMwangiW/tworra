@@ -24,7 +24,7 @@ jobs:
         with:
 
           php-version: ${{ matrix.php }}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Get Composer Cache Directory
