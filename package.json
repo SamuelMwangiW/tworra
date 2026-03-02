@@ -12,7 +12,7 @@
         "@tailwindcss/postcss": "^4.2.0",
         "@tailwindcss/typography": "^0.5.19",
         "@vitejs/plugin-vue": "^6.0.4",
-        "@vue/server-renderer": "^3.5.28",
+        "@vue/server-renderer": "^3.5.29",
         "axios": "^1.13",
         "laravel-vite-plugin": "^2.1.0",
         "lodash": "^4.17.23",
