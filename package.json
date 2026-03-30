@@ -14,7 +14,7 @@
         "@vitejs/plugin-vue": "^6.0.5",
         "@vue/server-renderer": "^3.5.30",
         "axios": "^1.14",
-        "laravel-vite-plugin": "^2.1.0",
+        "laravel-vite-plugin": "^3.0.0",
         "lodash": "^4.17.23",
         "postcss": "^8.5.8",
         "tailwindcss": "^4.2.2",
