@@ -11,7 +11,7 @@
         "@tailwindcss/forms": "^0.5.11",
         "@tailwindcss/postcss": "^4.3.2",
         "@tailwindcss/typography": "^0.5.20",
-        "@vitejs/plugin-vue": "^6.0.7",
+        "@vitejs/plugin-vue": "^6.0.8",
         "@vue/server-renderer": "^3.5.38",
         "axios": "^1.18",
         "laravel-vite-plugin": "^3.2.0",
